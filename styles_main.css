@@ -8,8 +8,13 @@ body {
     padding: 0;
     text-align: center;
     letter-spacing: 0.08em;
-    background:rgb(255, 255, 255);
-        color:white;
+    background-image: linear-gradient(rgba(10,6,4,0.55), rgba(10,6,4,0.55)), url('nh_background.webp');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-color: rgb(20,12,8);
+    color: rgb(255,255,255);
 }
 
 .mainframe {
@@ -17,25 +22,28 @@ body {
     margin-top:1.5vh;
     margin-bottom:1em;
     text-align:center;
-    background:rgb(255, 255, 255);
-    color:white;
+    background: transparent;
+    color: rgb(255,255,255);
 }
 
 .topbox {
     width:100%;
-    background:rgb(255, 255, 255);
-    color:rgb(0, 0, 0);
+    background: rgba(10,6,4,0.72);
+    backdrop-filter: blur(6px);
+    color: rgb(255,255,255);
     position:sticky;
     top:0;
     z-index:100;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
 }
 
 .headerimg {
-    width:26rem;
+    width:7rem;
     margin:auto;
-    padding:0;
+    padding:0.4em 0;
     text-align:center;
-    max-width:95%;
+    max-width:40%;
+    filter: drop-shadow(0 0.1em 0.4em rgba(0,0,0,0.6));
 }
 
 .navbar {
@@ -66,7 +74,7 @@ body {
     float:left;
     text-align:center;
     margin:auto;
-    background-color:white;
+    background-color: transparent;
     width:50%;
 }
 
@@ -76,15 +84,18 @@ body {
     line-height: 250%;
     font-size:1.4em;
     text-decoration: none;
-    color:rgb(0, 0, 0);
+    color: rgb(255,255,255);
+    font-weight: bold;
     letter-spacing: 0.1em;
+    text-shadow: 0.05em 0.05em 0.3em rgba(0,0,0,0.8);
 }
 
 .navbar ul li:hover {
-    background-color: rgb(209, 209, 209);
+    background-color: rgba(255,255,255,0.12);
 }
 .navbar ul li:hover a {
     text-decoration: underline;
+    color: rgb(255,190,120);
 }
 
 .verticallinks {
@@ -107,11 +118,11 @@ body {
 .verticallinks li a {
     font: calibri;
     display: block;
-    color: rgb(0, 0, 0);
+    color: rgb(255,255,255);
+    font-weight: bold;
     text-decoration: none;
     background-color:rgb(19, 19, 19);
     letter-spacing: 0.2em;
-    font-weight: bold;
     height:5em;
     transition: 0.25s ease-out;
     position:relative;
@@ -160,8 +171,9 @@ body {
     padding:0;
     padding-bottom:1.5em;
     margin:0;
-    color:rgb(0, 0, 0);
-    text-shadow: 0.1em 0.1em 0.6em rgba(20,20,20,0.15);
+    color: rgb(255,255,255);
+    font-weight: bold;
+    text-shadow: 0.1em 0.1em 0.5em rgba(0,0,0,0.8);
 }
 
 .socialicons {
@@ -193,7 +205,17 @@ body {
 
 .socialicons li a svg {
     width:2em;
-    fill:rgba(250,250,250,0.7);
+    fill: rgb(255,255,255);
+    filter: drop-shadow(0 0.05em 0.25em rgba(0,0,0,0.7));
+}
+
+.socialicons li a svg path {
+    fill: rgb(255,255,255) !important;
+    transition: fill 0.2s ease-out;
+}
+
+.socialicons li a:hover svg path {
+    fill: rgb(255,190,120) !important;
 }
 
 .socialicons li a svg:hover {
@@ -212,7 +234,8 @@ body {
 .signup {
     font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; text-align:center;
     padding-top:0.5em;max-width:100%;width:50vh;margin:auto;
-    color:white;
+    color: rgb(255,255,255);
+    font-weight: bold;
 }
 
 .signupbutton {
@@ -221,5 +244,17 @@ body {
 
 .signupfooter {
     font-size:0.1+1.3vmax;margin:auto;display:block;
+    text-shadow: 0.1em 0.1em 0.5em rgba(0,0,0,0.8);
 }
 
+.textbox {
+    background: rgba(10,6,4,0.68);
+    border-radius: 0.6em;
+    padding: 1.5em 1.5em 2em 1.5em;
+    color: rgb(255,255,255);
+    font-weight: bold;
+    line-height: 1.5em;
+    text-shadow: 0.05em 0.05em 0.3em rgba(0,0,0,0.7);
+    max-width: 45rem;
+    margin: 1em auto;
+}
