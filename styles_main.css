@@ -19,7 +19,7 @@ body {
 
 .mainframe {
     z-index: 1;
-    margin-top:1.5vh;
+    margin-top:0;
     margin-bottom:1em;
     text-align:center;
     background: transparent;
