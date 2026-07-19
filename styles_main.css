@@ -47,9 +47,9 @@ body {
 .navbar {
     margin:auto;
     padding:0;
-    width:80vh;
+    width:42rem;
     max-width:95%;
-    height:1.8em;
+    height:auto;
     margin-bottom:1%;
     font-family:Georgia, Times, 'Times New Roman', serif;
     text-align: center;
@@ -58,8 +58,8 @@ body {
 .navbar ul {
     display:flex;
     flex-wrap:wrap;
+    justify-content:center;
     list-style-type: none;
-    height:100%;
     width:100%;
     margin:auto;
     padding:0;
@@ -73,19 +73,30 @@ body {
     text-align:center;
     margin:auto;
     background-color: transparent;
-    flex:1 1 0;
+    flex:1 1 auto;
+    min-width:4.5em;
 }
 
 .navbar ul li a {
     display:block;
     text-align:center;
     line-height: 130%;
-    font-size:1.1em;
+    padding: 0.3em 0.4em;
+    font-size:1em;
+    white-space:nowrap;
     text-decoration: none;
     color: rgb(255,255,255);
     font-weight: bold;
     letter-spacing: 0.1em;
     text-shadow: 0.05em 0.05em 0.3em rgba(0,0,0,0.8);
+}
+
+@media (max-width:480px) {
+    .navbar ul li a {
+        font-size:0.85em;
+        letter-spacing:0.05em;
+        padding: 0.3em 0.2em;
+    }
 }
 
 .navbar ul li:hover {
