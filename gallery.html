@@ -13,8 +13,11 @@
         }
 
         .polaroidwall {
-            column-width: 220px;
-            column-gap: 0.6em;
+            display:flex;
+            flex-wrap:wrap;
+            justify-content:center;
+            align-items:flex-start;
+            gap: 0.5em 0.3em;
             width:100%;
             max-width:none;
             margin: 2em auto;
@@ -25,14 +28,10 @@
             position:relative;
             background: #f2eee4;
             padding: 0.6em 0.6em 2em 0.6em;
-            width: 100%;
-            box-sizing: border-box;
+            width: 220px;
             box-shadow: 0 0.5em 1.2em rgba(0,0,0,0.55);
             cursor: zoom-in;
             transition: transform 0.25s ease, box-shadow 0.25s ease;
-            break-inside: avoid;
-            display: inline-block;
-            margin-bottom: 1.4em;
         }
 
         .polaroid img {
@@ -69,8 +68,7 @@
         .polaroidwall .polaroid:nth-child(7n+7) { transform: rotate(-2deg); margin-top:0.4em; }
 
         @media (max-width:600px) {
-            .polaroidwall { column-width: 150px; }
-            .polaroid { padding: 0.4em 0.4em 1.5em 0.4em; }
+            .polaroid { width:150px; padding: 0.4em 0.4em 1.5em 0.4em; }
         }
 
         .lightbox {

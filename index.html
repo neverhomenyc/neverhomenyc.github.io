@@ -16,7 +16,9 @@
             width:100%;
             margin:auto;
             display:grid;
-            grid-template-columns: repeat(4, minmax(255px, 315px));
+            grid-template-columns: repeat(2, minmax(255px, 315px));
+            grid-template-rows: repeat(4, auto);
+            grid-auto-flow: column;
             justify-content: center;
             gap: 0.8em;
             color:white;
@@ -24,7 +26,7 @@
 
         @media (max-width:900px) {
             .gridcontainer {
-                grid-template-columns: repeat(4, minmax(70px, 150px));
+                grid-template-columns: repeat(2, minmax(120px, 180px));
             }
         }
 
