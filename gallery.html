@@ -13,11 +13,8 @@
         }
 
         .polaroidwall {
-            display:flex;
-            flex-wrap:wrap;
-            justify-content:center;
-            align-items:flex-start;
-            gap: 0.5em 0.3em;
+            column-width: 220px;
+            column-gap: 0.6em;
             width:100%;
             max-width:none;
             margin: 2em auto;
@@ -28,10 +25,14 @@
             position:relative;
             background: #f2eee4;
             padding: 0.6em 0.6em 2em 0.6em;
-            width: 220px;
+            width: 100%;
+            box-sizing: border-box;
             box-shadow: 0 0.5em 1.2em rgba(0,0,0,0.55);
             cursor: zoom-in;
             transition: transform 0.25s ease, box-shadow 0.25s ease;
+            break-inside: avoid;
+            display: inline-block;
+            margin-bottom: 1.4em;
         }
 
         .polaroid img {
@@ -68,7 +69,8 @@
         .polaroidwall .polaroid:nth-child(7n+7) { transform: rotate(-2deg); margin-top:0.4em; }
 
         @media (max-width:600px) {
-            .polaroid { width:150px; padding: 0.4em 0.4em 1.5em 0.4em; }
+            .polaroidwall { column-width: 150px; }
+            .polaroid { padding: 0.4em 0.4em 1.5em 0.4em; }
         }
 
         .lightbox {
@@ -164,128 +166,128 @@
             <div class="polaroidwall">
                 <div class="polaroid"><img src="gallery/actual-first.webp" onclick="openLightbox(this.src)"/></div>
                 <div class="polaroid"><img src="gallery/first.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/p2210008.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/e0271f26-e3cc-4980-a215-73e3e21b87c7.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/img-6868.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/100-4350.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/p6180029.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/p6010011.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/img-2327.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/img-2848.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/img-6865.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/img-5048.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/img-6889.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/img-7982.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/p6010013.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/img-2628.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/p3020106.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/neverhome-slumbosesh1-14.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/p3020146.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/p6180026.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/img-8584.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/neverhome-slumbosesh1-29.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/img-8310.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/screenshot-2023-12-20-at-1-54-41-pm.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/pa010053.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/p3020147.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/img-5684.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/8211e622-c7b4-43ad-845b-92a00f145064.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/img-6638.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/p6180028.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/img-3144.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/img-6880.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/p3020135.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/img-6867.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/img-6864.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/neeverhome-heavencanwait-8.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/img-7978.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/p7120030.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/e8549f22-f03f-4750-912e-af15ca399dd5.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/img-6374.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/img-2830.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/img-2606.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/p6010010.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/p6180012.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/img-9004.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/7a810adc-1dda-4e84-a35a-6357eb465c67.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/img-5978.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/p6180030.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/100-4371.webp" onclick="openLightbox(this.src)"/></div>
                 <div class="polaroid"><img src="gallery/img-2527.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/img-6863.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/img-8569-edit.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/img-2715.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/p9030051.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/img-2833.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/346e669a-97d9-4c43-8c12-c0383bea903c.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/7560b937-58f7-40c6-acce-6977daa55e44.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/p3020108.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/img-8013.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/pc120035.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/a05a090b-3311-4f3f-9aca-719c5a4d94d0.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/pc120038.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/img-2679.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/p6180032.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/img-6887.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/img-2652.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/100-4339.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/img-8584.webp" onclick="openLightbox(this.src)"/></div>
                 <div class="polaroid"><img src="gallery/nebverhome.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/neverhome-slumbosesh1-78-2.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/pc120042.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/img-9008.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/people-on-the-roof.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/img-2842.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/p7120022.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/p4210166.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/img-3135.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/img-3114.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/pa010061.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/neeverhome-heavencanwait-1.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/20250221-212714-354.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/neverhome-3.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/p6180033.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/e74ccde4-2843-4165-8e77-b27c399053b8.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/p6180021.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/img-0925.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/img-2557.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/img-3115.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/img-4650.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/img-5981.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/11519686-a8f6-453d-bb0c-2e16a8ee3248.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/img-1101.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/pc120020.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/dsc00804.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/p6020105.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/dsc00999.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/axrlc.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/p6020142.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/dsc00852.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/dscn0194.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/p6010013.webp" onclick="openLightbox(this.src)"/></div>
                 <div class="polaroid"><img src="gallery/img-1276.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/dsc00921.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/dsc00844.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/dsc00812.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/dsc00861.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/dsc00960.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/p6020104.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/dsc00944.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/img-2361.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/p6020130.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/dsc00996.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/dsc00817.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/dsc00804.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/img-6868.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/img-2679.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/p7120030.webp" onclick="openLightbox(this.src)"/></div>
                 <div class="polaroid"><img src="gallery/dsc00918.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/img-7978.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/img-6867.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/img-2848.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/e8549f22-f03f-4750-912e-af15ca399dd5.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/img-2830.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/p7120022.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/img-9004.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/pc120038.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/100-4339.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/100-4371.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/img-2842.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/e0271f26-e3cc-4980-a215-73e3e21b87c7.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/screenshot-2023-12-20-at-1-54-41-pm.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/p3020108.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/img-5978.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/img-4650.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/p6180030.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/img-6638.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/neverhome-slumbosesh1-78-2.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/p6020132.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/img-6863.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/p6020130.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/img-3115.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/p6020103.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/dsc00844.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/img-1101.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/dsc00960.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/p3020146.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/img-8310.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/346e669a-97d9-4c43-8c12-c0383bea903c.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/img-2557.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/p6180012.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/dsc00921.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/a05a090b-3311-4f3f-9aca-719c5a4d94d0.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/p6180033.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/dsc00817.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/img-0925.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/p6020101.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/img-8013.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/dsc00861.webp" onclick="openLightbox(this.src)"/></div>
                 <div class="polaroid"><img src="gallery/img-7968.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/p6020106.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/p6020077.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/11519686-a8f6-453d-bb0c-2e16a8ee3248.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/pa010061.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/p3020106.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/dsc00852.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/img-6864.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/img-2606.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/20250221-212714-354.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/axrlc.webp" onclick="openLightbox(this.src)"/></div>
                 <div class="polaroid"><img src="gallery/p6020073.webp" onclick="openLightbox(this.src)"/></div>
                 <div class="polaroid"><img src="gallery/artboard-1.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/p6020132.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/rcimt.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/p6020101.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/p6020103.webp" onclick="openLightbox(this.src)"/></div>
-                <div class="polaroid"><img src="gallery/dsc01026.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/img-3135.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/p3020147.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/100-4350.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/p6020105.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/img-2833.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/img-3114.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/img-6887.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/img-5684.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/dsc00996.webp" onclick="openLightbox(this.src)"/></div>
                 <div class="polaroid"><img src="gallery/bfbc80b5-4e5f-4bb2-913e-cd17280b56cd.webp" onclick="openLightbox(this.src)"/></div>
                 <div class="polaroid"><img src="gallery/p6020096.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/neverhome-slumbosesh1-14.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/p6180028.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/p6020142.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/dsc00812.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/img-7982.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/pc120035.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/p2210008.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/img-9008.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/p6020104.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/p6010010.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/img-6880.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/p6010011.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/people-on-the-roof.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/dsc00999.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/img-2715.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/neverhome-3.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/img-5048.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/p3020135.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/dsc01026.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/pa010053.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/p6020106.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/img-6374.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/rcimt.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/p6180021.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/p9030051.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/e74ccde4-2843-4165-8e77-b27c399053b8.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/p6180029.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/img-2327.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/img-5981.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/img-6889.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/8211e622-c7b4-43ad-845b-92a00f145064.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/img-3144.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/pc120020.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/p6180026.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/img-2361.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/neeverhome-heavencanwait-1.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/img-2628.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/img-6865.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/neverhome-slumbosesh1-29.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/neeverhome-heavencanwait-8.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/p6020077.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/7560b937-58f7-40c6-acce-6977daa55e44.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/p4210166.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/img-8569-edit.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/pc120042.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/dsc00944.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/7a810adc-1dda-4e84-a35a-6357eb465c67.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/img-2652.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/p6180032.webp" onclick="openLightbox(this.src)"/></div>
+                <div class="polaroid"><img src="gallery/dscn0194.webp" onclick="openLightbox(this.src)"/></div>
             </div>
         </div>
 
