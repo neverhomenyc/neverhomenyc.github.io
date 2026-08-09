@@ -123,50 +123,6 @@
             font-weight:bold;
         }
 
-        .carticon {
-            position: fixed;
-            top: 0.8em;
-            right: 0.8em;
-            z-index: 200;
-            width: 2.6em;
-            height: 2.6em;
-            border-radius: 50%;
-            background: rgba(10,6,4,0.85);
-            border: 1px solid rgba(255,255,255,0.15);
-            box-shadow: 0 0 0.5em rgba(0,0,0,0.6);
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            cursor:pointer;
-            transition: 0.2s ease-out;
-        }
-
-        .carticon:hover {
-            background: rgba(10,6,4,1);
-        }
-
-        .carticon svg {
-            width: 1.3em;
-            height: 1.3em;
-            fill: rgb(255,190,120);
-        }
-
-        .cartbadge {
-            position:absolute;
-            top:-0.3em;
-            right:-0.3em;
-            background: rgb(255,190,120);
-            color: rgb(20,12,8);
-            font-size:0.7em;
-            font-weight:bold;
-            border-radius:50%;
-            min-width:1.3em;
-            height:1.3em;
-            display:none;
-            align-items:center;
-            justify-content:center;
-            padding:0 0.2em;
-        }
     </style>
     <link rel="preload" href="styles_main.css?id=34987542" as="style" onload="this.rel='stylesheet'">
     <meta charset="UTF-8">
@@ -238,6 +194,7 @@
          the site's look. Cart is handled here; only the final payment
          step redirects to Fourthwall's secure checkout.
     ============================================================ -->
+    <script src="cart_widget.js"></script>
     <script src="merch_scripts.js"></script>
 </body>
 </html>
