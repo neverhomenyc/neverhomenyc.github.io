@@ -73,15 +73,23 @@
 
             var btn = document.createElement('button');
             btn.textContent = 'ADD TO CART';
+
+            var errorEl = document.createElement('div');
+            errorEl.className = 'itemerror';
+            errorEl.style.display = 'none';
+
             btn.addEventListener('click', function () {
                 var variantId = select ? select.value : variants[0].id;
                 var originalText = btn.textContent;
                 btn.textContent = 'ADDING...';
                 btn.disabled = true;
+                errorEl.style.display = 'none';
 
                 if (!window.NHCart) {
                     btn.textContent = 'ERROR — TRY AGAIN';
                     btn.disabled = false;
+                    errorEl.textContent = 'Cart script did not load (window.NHCart missing).';
+                    errorEl.style.display = 'block';
                     return;
                 }
 
@@ -95,13 +103,16 @@
                             btn.disabled = false;
                         }, 1200);
                     },
-                    function () {
+                    function (err) {
                         btn.textContent = 'ERROR — TRY AGAIN';
                         btn.disabled = false;
+                        errorEl.textContent = (err && err.message) ? err.message : 'Unknown error';
+                        errorEl.style.display = 'block';
                     }
                 );
             });
             card.appendChild(btn);
+            card.appendChild(errorEl);
 
             grid.appendChild(card);
         });

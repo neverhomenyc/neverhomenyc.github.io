@@ -349,6 +349,152 @@ body {
     padding:0 0.2em;
 }
 
+.cartdropdown {
+    display:none;
+    position: fixed;
+    top: 3.6em;
+    right: 0.8em;
+    z-index: 200;
+    width: 320px;
+    max-width: 90vw;
+    max-height: 70vh;
+    overflow-y: auto;
+    background: rgba(10,6,4,0.96);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 0.6em;
+    box-shadow: 0 0.3em 1em rgba(0,0,0,0.6);
+    padding: 0.9em;
+    color: white;
+    text-align: left;
+}
+
+.cartdropdown.open {
+    display:block;
+}
+
+.cartdropdown-empty {
+    font-size:0.9em;
+    opacity:0.75;
+    text-align:center;
+    padding: 0.5em 0;
+}
+
+.cartitems {
+    display:flex;
+    flex-direction:column;
+    gap:0.7em;
+}
+
+.cartline {
+    display:flex;
+    align-items:center;
+    gap:0.6em;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom:0.6em;
+}
+
+.cartline-img {
+    width:2.8em;
+    height:2.8em;
+    object-fit:contain;
+    background: rgb(237,231,217);
+    border-radius:0.3em;
+    flex-shrink:0;
+}
+
+.cartline-info {
+    flex:1 1 auto;
+    min-width:0;
+}
+
+.cartline-name {
+    font-weight:bold;
+    font-size:0.85em;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.cartline-variant {
+    font-size:0.75em;
+    opacity:0.75;
+}
+
+.cartline-price {
+    font-size:0.8em;
+    margin-top:0.1em;
+}
+
+.cartline-qty {
+    display:flex;
+    align-items:center;
+    gap:0.3em;
+    flex-shrink:0;
+}
+
+.cartline-qty button {
+    width:1.5em;
+    height:1.5em;
+    border:1px solid rgba(255,255,255,0.25);
+    background: rgba(255,255,255,0.08);
+    color:white;
+    border-radius:0.25em;
+    cursor:pointer;
+    font-weight:bold;
+    line-height:1;
+}
+
+.cartline-qty button:hover {
+    background: rgba(255,255,255,0.18);
+}
+
+.qty-value {
+    min-width:1.2em;
+    text-align:center;
+    font-size:0.85em;
+}
+
+.cartline-remove {
+    flex-shrink:0;
+    background:none;
+    border:none;
+    color: rgba(255,255,255,0.6);
+    font-size:1.1em;
+    cursor:pointer;
+    line-height:1;
+    padding:0.2em;
+}
+
+.cartline-remove:hover {
+    color: rgb(255,150,150);
+}
+
+.cartsubtotal {
+    margin-top:0.8em;
+    padding-top:0.6em;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    font-weight:bold;
+    text-align:right;
+}
+
+.cartcheckoutbtn {
+    width:100%;
+    margin-top:0.8em;
+    padding:0.7em;
+    border:none;
+    border-radius:0.3em;
+    background: rgb(255,190,120);
+    color: rgb(20,12,8);
+    font-weight:bold;
+    letter-spacing:0.08em;
+    cursor:pointer;
+    transition: 0.2s ease-out;
+}
+
+.cartcheckoutbtn:hover {
+    opacity:0.85;
+}
+
 .videogrid {
     display:grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
