@@ -111,10 +111,50 @@
         .storeitem button:hover {
             opacity:0.85;
         }
+
+        .storeitem select.itemsize {
+            margin-top:0.8em;
+            padding:0.5em;
+            border-radius:0.3em;
+            border:1px solid rgba(255,255,255,0.25);
+            background: rgba(0,0,0,0.35);
+            color:white;
+            font-weight:bold;
+        }
+
+        .cartbar {
+            display:none;
+            position:sticky;
+            bottom:0;
+            z-index:50;
+            align-items:center;
+            justify-content:space-between;
+            gap:1em;
+            background: rgba(10,6,4,0.9);
+            border-radius:0.6em;
+            padding:0.8em 1em;
+            margin:1em 0;
+            box-shadow: 0 0 0.6em rgba(0,0,0,0.6);
+            font-weight:bold;
+        }
+
+        .cartbar button {
+            padding:0.6em 1.2em;
+            border:none;
+            border-radius:0.3em;
+            background: rgb(255,190,120);
+            color: rgb(20,12,8);
+            font-weight:bold;
+            letter-spacing:0.08em;
+            cursor:pointer;
+            transition: 0.2s ease-out;
+        }
+
+        .cartbar button:hover {
+            opacity:0.85;
+        }
     </style>
     <link rel="preload" href="styles_main.css?id=34987542" as="style" onload="this.rel='stylesheet'">
-    <link rel="preconnect" href="https://cdn.snipcart.com">
-    <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.7.3/default/snipcart.css">
     <meta charset="UTF-8">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
@@ -142,6 +182,10 @@
             <div class="sectionlabel">MADE TO ORDER — SHIPS TO YOU</div>
             <div class="sectionsub">printed &amp; shipped when you order — ships in 1–2 weeks</div>
             <div class="storegrid" id="madeToOrderGrid"></div>
+            <div class="cartbar" id="cartBar">
+                <span id="cartCount">0 items in cart</span>
+                <button id="checkoutBtn">CHECKOUT</button>
+            </div>
 
             <!--
                 SHOW MERCH: in-stock items sold in person only, no online checkout.
@@ -174,78 +218,12 @@
     <script src="event_scripts.js"></script>
 
     <!-- ============================================================
-         MADE-TO-ORDER STORE (Snipcart cart/checkout + Printful fulfillment)
-         Public API key: replace YOUR_SNIPCART_PUBLIC_API_KEY below with the
-         key from your Snipcart dashboard (Account > API Keys > Public key).
-         See SETUP.md in the repo root for full setup instructions.
+         MADE-TO-ORDER STORE (Fourthwall Storefront API)
+         Products are designed/managed entirely in your Fourthwall
+         dashboard (fourthwall.com) — this just pulls them in and matches
+         the site's look. Cart is handled here; only the final payment
+         step redirects to Fourthwall's secure checkout.
     ============================================================ -->
-    <div hidden id="snipcart" data-api-key="YOUR_SNIPCART_PUBLIC_API_KEY" data-config-modal-style="side"></div>
-    <script async src="https://cdn.snipcart.com/themes/v3.7.3/default/snipcart.js"></script>
-
-    <script>
-        // Renders made-to-order product cards from merch-products.json and
-        // wires each one up as a Snipcart buy button. Size/color options
-        // (if any) are declared as Snipcart custom fields, so Snipcart itself
-        // prompts the customer to choose before adding to cart.
-        fetch('merch-products.json?id=' + Date.now())
-            .then(function (res) { return res.json(); })
-            .then(function (products) {
-                var grid = document.getElementById('madeToOrderGrid');
-                if (!grid) return;
-                products.forEach(function (product) {
-                    var card = document.createElement('div');
-                    card.className = 'storeitem';
-
-                    var img = document.createElement('img');
-                    img.src = product.image;
-                    img.alt = product.name;
-                    card.appendChild(img);
-
-                    var name = document.createElement('div');
-                    name.className = 'itemname';
-                    name.textContent = product.name;
-                    card.appendChild(name);
-
-                    var note = document.createElement('div');
-                    note.className = 'itemnote';
-                    note.textContent = product.description || '';
-                    card.appendChild(note);
-
-                    var price = document.createElement('div');
-                    price.className = 'itemprice';
-                    price.textContent = '$' + Number(product.price).toFixed(2);
-                    card.appendChild(price);
-
-                    var btn = document.createElement('button');
-                    btn.className = 'snipcart-add-item';
-                    btn.textContent = 'ADD TO CART';
-                    btn.setAttribute('data-item-id', product.id);
-                    btn.setAttribute('data-item-price', product.price);
-                    btn.setAttribute('data-item-url', 'https://neverhomenyc.com/merch-products.json');
-                    btn.setAttribute('data-item-name', product.name);
-                    btn.setAttribute('data-item-image', product.image);
-                    btn.setAttribute('data-item-shippable', 'true');
-                    if (product.weight) {
-                        btn.setAttribute('data-item-weight', product.weight);
-                    }
-                    (product.optionFields || []).forEach(function (field, i) {
-                        var idx = i + 1;
-                        var optionsStr = field.options.map(function (opt) {
-                            var mod = field.priceModifiers && field.priceModifiers[opt];
-                            return mod ? (opt + '[+' + Number(mod).toFixed(2) + ']') : opt;
-                        }).join('|');
-                        btn.setAttribute('data-item-custom' + idx + '-name', field.name);
-                        btn.setAttribute('data-item-custom' + idx + '-options', optionsStr);
-                        btn.setAttribute('data-item-custom' + idx + '-required', 'true');
-                    });
-
-                    card.appendChild(btn);
-                    grid.appendChild(card);
-                });
-            })
-            .catch(function (err) {
-                console.error('Could not load merch-products.json', err);
-            });
-    </script>
+    <script src="merch_scripts.js"></script>
 </body>
 </html>
