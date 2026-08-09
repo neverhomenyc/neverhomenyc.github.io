@@ -73,7 +73,8 @@
         .storeitem img {
             width:100%;
             aspect-ratio: 1 / 1;
-            object-fit: cover;
+            object-fit: contain;
+            background: rgb(237,231,217);
             border-radius: 0.4em;
             box-shadow: 0 0 0.4em rgba(0,0,0,0.5);
         }
@@ -122,36 +123,49 @@
             font-weight:bold;
         }
 
-        .cartbar {
-            display:none;
-            position:sticky;
-            bottom:0;
-            z-index:50;
+        .carticon {
+            position: fixed;
+            top: 0.8em;
+            right: 0.8em;
+            z-index: 200;
+            width: 2.6em;
+            height: 2.6em;
+            border-radius: 50%;
+            background: rgba(10,6,4,0.85);
+            border: 1px solid rgba(255,255,255,0.15);
+            box-shadow: 0 0 0.5em rgba(0,0,0,0.6);
+            display:flex;
             align-items:center;
-            justify-content:space-between;
-            gap:1em;
-            background: rgba(10,6,4,0.9);
-            border-radius:0.6em;
-            padding:0.8em 1em;
-            margin:1em 0;
-            box-shadow: 0 0 0.6em rgba(0,0,0,0.6);
-            font-weight:bold;
-        }
-
-        .cartbar button {
-            padding:0.6em 1.2em;
-            border:none;
-            border-radius:0.3em;
-            background: rgb(255,190,120);
-            color: rgb(20,12,8);
-            font-weight:bold;
-            letter-spacing:0.08em;
+            justify-content:center;
             cursor:pointer;
             transition: 0.2s ease-out;
         }
 
-        .cartbar button:hover {
-            opacity:0.85;
+        .carticon:hover {
+            background: rgba(10,6,4,1);
+        }
+
+        .carticon svg {
+            width: 1.3em;
+            height: 1.3em;
+            fill: rgb(255,190,120);
+        }
+
+        .cartbadge {
+            position:absolute;
+            top:-0.3em;
+            right:-0.3em;
+            background: rgb(255,190,120);
+            color: rgb(20,12,8);
+            font-size:0.7em;
+            font-weight:bold;
+            border-radius:50%;
+            min-width:1.3em;
+            height:1.3em;
+            display:none;
+            align-items:center;
+            justify-content:center;
+            padding:0 0.2em;
         }
     </style>
     <link rel="preload" href="styles_main.css?id=34987542" as="style" onload="this.rel='stylesheet'">
@@ -163,6 +177,10 @@
     <link rel="icon" href="NHICO.ico">
 </head>
 <body>
+    <div class="carticon" id="cartIcon" title="View cart / checkout">
+        <svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 4H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+        <span class="cartbadge" id="cartBadge">0</span>
+    </div>
     <div class="mainframe">
         <div class="topbox">
             <a href="https://neverhomenyc.com/"><img class="headerimg" src="nh_logo.webp"/></a>
@@ -182,10 +200,6 @@
             <div class="sectionlabel">MADE TO ORDER — SHIPS TO YOU</div>
             <div class="sectionsub">printed &amp; shipped when you order — ships in 1–2 weeks</div>
             <div class="storegrid" id="madeToOrderGrid"></div>
-            <div class="cartbar" id="cartBar">
-                <span id="cartCount">0 items in cart</span>
-                <button id="checkoutBtn">CHECKOUT</button>
-            </div>
 
             <!--
                 SHOW MERCH: in-stock items sold in person only, no online checkout.
