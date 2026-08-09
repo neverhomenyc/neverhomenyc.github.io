@@ -253,6 +253,17 @@ body {
     padding-top:15px;padding-bottom:25px;font-size:0;width:100%;margin:auto;height:20px;
 }
 
+.substackembed {
+    padding-top:15px;padding-bottom:25px;width:100%;margin:auto;
+    display:flex;justify-content:center;
+}
+
+.substackembed iframe {
+    max-width:100%;
+    border-radius:0.4em;
+    box-shadow:0 0 0.6em rgba(0,0,0,0.5);
+}
+
 .signupfooter {
     font-size:0.1+1.3vmax;margin:auto;display:block;
     text-shadow: 0.1em 0.1em 0.5em rgba(0,0,0,0.8);
