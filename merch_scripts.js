@@ -42,11 +42,60 @@
             var card = document.createElement('div');
             card.className = 'storeitem';
 
+            var images = (product.images && product.images.length) ? product.images : (variants[0].images || []);
+            var imgIndex = 0;
+
+            var imgWrap = document.createElement('div');
+            imgWrap.className = 'itemimgwrap';
+
             var img = document.createElement('img');
-            var firstImage = (product.images && product.images[0]) || (variants[0].images && variants[0].images[0]);
-            img.src = firstImage ? firstImage.url : '';
+            img.src = images.length ? images[imgIndex].url : '';
             img.alt = product.name;
-            card.appendChild(img);
+            imgWrap.appendChild(img);
+
+            if (images.length > 1) {
+                var prevBtn = document.createElement('button');
+                prevBtn.type = 'button';
+                prevBtn.className = 'itemimgnav itemimgprev';
+                prevBtn.textContent = '‹';
+                prevBtn.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    imgIndex = (imgIndex - 1 + images.length) % images.length;
+                    img.src = images[imgIndex].url;
+                    updateDots();
+                });
+                imgWrap.appendChild(prevBtn);
+
+                var nextBtn = document.createElement('button');
+                nextBtn.type = 'button';
+                nextBtn.className = 'itemimgnav itemimgnext';
+                nextBtn.textContent = '›';
+                nextBtn.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    imgIndex = (imgIndex + 1) % images.length;
+                    img.src = images[imgIndex].url;
+                    updateDots();
+                });
+                imgWrap.appendChild(nextBtn);
+
+                var dots = document.createElement('div');
+                dots.className = 'itemimgdots';
+                images.forEach(function (_, i) {
+                    var dot = document.createElement('span');
+                    dot.className = 'itemimgdot' + (i === imgIndex ? ' active' : '');
+                    dots.appendChild(dot);
+                });
+                imgWrap.appendChild(dots);
+            }
+
+            function updateDots() {
+                var dotEls = imgWrap.querySelectorAll('.itemimgdot');
+                dotEls.forEach(function (d, i) {
+                    d.className = 'itemimgdot' + (i === imgIndex ? ' active' : '');
+                });
+            }
+
+            card.appendChild(imgWrap);
 
             var name = document.createElement('div');
             name.className = 'itemname';

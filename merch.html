@@ -70,13 +70,70 @@
             flex-direction:column;
         }
 
-        .storeitem img {
+        .storeitem .itemimgwrap {
+            position: relative;
+        }
+
+        .storeitem .itemimgwrap img {
             width:100%;
             aspect-ratio: 1 / 1;
             object-fit: contain;
             background: rgb(237,231,217);
             border-radius: 0.4em;
             box-shadow: 0 0 0.4em rgba(0,0,0,0.5);
+            display:block;
+        }
+
+        .itemimgnav {
+            position:absolute;
+            top:50%;
+            transform: translateY(-50%);
+            width:2em;
+            height:2em;
+            border:none;
+            border-radius:50%;
+            background: rgba(10,6,4,0.65);
+            color:white;
+            font-size:1.2em;
+            line-height:1;
+            cursor:pointer;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            transition: 0.2s ease-out;
+        }
+
+        .itemimgnav:hover {
+            background: rgba(10,6,4,0.9);
+        }
+
+        .itemimgprev {
+            left:0.4em;
+        }
+
+        .itemimgnext {
+            right:0.4em;
+        }
+
+        .itemimgdots {
+            position:absolute;
+            bottom:0.5em;
+            left:0;
+            right:0;
+            display:flex;
+            justify-content:center;
+            gap:0.3em;
+        }
+
+        .itemimgdot {
+            width:0.45em;
+            height:0.45em;
+            border-radius:50%;
+            background: rgba(255,255,255,0.4);
+        }
+
+        .itemimgdot.active {
+            background: rgb(255,190,120);
         }
 
         .storeitem .itemname {
