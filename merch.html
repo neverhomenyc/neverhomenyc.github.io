@@ -55,10 +55,11 @@
 
         .storegrid {
             width:100%;
+            max-width: 64rem;
             margin:auto;
             display:grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1em;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5em;
         }
 
         .storeitem {
@@ -68,6 +69,31 @@
             box-shadow: 0 0 0.6em rgba(0,0,0,0.5);
             display:flex;
             flex-direction:column;
+            transition: 0.2s ease-out;
+        }
+
+        .storeitem.enlarged {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 300;
+            width: min(92vw, 520px);
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 0 3em rgba(0,0,0,0.85);
+        }
+
+        .merchbackdrop {
+            display:none;
+            position:fixed;
+            inset:0;
+            background: rgba(0,0,0,0.75);
+            z-index: 260;
+        }
+
+        .merchbackdrop.active {
+            display:block;
         }
 
         .storeitem .itemimgwrap {
@@ -82,6 +108,11 @@
             border-radius: 0.4em;
             box-shadow: 0 0 0.4em rgba(0,0,0,0.5);
             display:block;
+            cursor: zoom-in;
+        }
+
+        .storeitem.enlarged .itemimgwrap img {
+            cursor: zoom-out;
         }
 
         .itemimgnav {
@@ -226,6 +257,7 @@
             <div class="sectionlabel">MADE TO ORDER — SHIPS TO YOU</div>
             <div class="sectionsub">printed &amp; shipped when you order — ships in 1–2 weeks</div>
             <div class="storegrid" id="madeToOrderGrid"></div>
+            <div class="merchbackdrop" id="merchBackdrop"></div>
 
             <!--
                 SHOW MERCH: in-stock items sold in person only, no online checkout.

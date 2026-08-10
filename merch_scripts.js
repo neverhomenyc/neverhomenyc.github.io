@@ -22,6 +22,24 @@
         return sizeName;
     }
 
+    function collapseAllCards() {
+        document.querySelectorAll('.storeitem.enlarged').forEach(function (el) {
+            el.classList.remove('enlarged');
+        });
+        var backdrop = document.getElementById('merchBackdrop');
+        if (backdrop) backdrop.classList.remove('active');
+    }
+
+    function toggleEnlarge(card) {
+        var wasEnlarged = card.classList.contains('enlarged');
+        collapseAllCards();
+        if (!wasEnlarged) {
+            card.classList.add('enlarged');
+            var backdrop = document.getElementById('merchBackdrop');
+            if (backdrop) backdrop.classList.add('active');
+        }
+    }
+
     function renderProducts(products) {
         var grid = document.getElementById('madeToOrderGrid');
         if (!grid) return;
@@ -51,6 +69,9 @@
             var img = document.createElement('img');
             img.src = images.length ? images[imgIndex].url : '';
             img.alt = product.name;
+            img.addEventListener('click', function () {
+                toggleEnlarge(card);
+            });
             imgWrap.appendChild(img);
 
             if (images.length > 1) {
@@ -166,6 +187,9 @@
             grid.appendChild(card);
         });
     }
+
+    var backdropEl = document.getElementById('merchBackdrop');
+    if (backdropEl) backdropEl.addEventListener('click', collapseAllCards);
 
     fetch(API_BASE + '/collections/all/products?storefront_token=' + STOREFRONT_TOKEN)
         .then(function (res) { return res.json(); })
