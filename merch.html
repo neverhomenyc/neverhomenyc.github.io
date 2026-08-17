@@ -103,10 +103,15 @@
         .itemimgsplit {
             display:flex;
             gap:0.5em;
+            width:100%;
         }
 
         .itemimgsplit img {
+            box-sizing: border-box;
             width:50%;
+            min-width:0;
+            max-width:50%;
+            flex: 0 1 50%;
             aspect-ratio: 3 / 4;
             object-fit: contain;
             background: rgb(237,231,217);
@@ -118,6 +123,8 @@
 
         .itemimgsplit.singleimg img {
             width:100%;
+            max-width:100%;
+            flex: 0 1 100%;
         }
 
         .itemimglabel {
@@ -329,7 +336,7 @@
          the site's look. Cart is handled here; only the final payment
          step redirects to Fourthwall's secure checkout.
     ============================================================ -->
-    <script src="cart_widget.js"></script>
-    <script src="merch_scripts.js"></script>
+    <script src="cart_widget.js?v=20260816b"></script>
+    <script src="merch_scripts.js?v=20260816b"></script>
 </body>
 </html>
