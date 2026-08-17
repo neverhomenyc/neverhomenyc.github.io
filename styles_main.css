@@ -76,8 +76,8 @@ body {
     text-align:center;
     margin:auto;
     background-color: transparent;
-    flex:1 1 auto;
-    min-width:4.5em;
+    flex:0 0 7em;
+    width:7em;
 }
 
 .navbar ul li a {
