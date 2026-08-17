@@ -42,6 +42,28 @@
         .griditem img:hover {
             opacity:0.95;
         }
+
+        .featuredrelease {
+            margin: 0 auto 1.5em auto;
+            max-width: 420px;
+        }
+
+        .featuredlabel {
+            font-weight:bold;
+            letter-spacing:0.2em;
+            margin-bottom:0.6em;
+            text-shadow: 0.05em 0.05em 0.3em rgba(0,0,0,0.7);
+        }
+
+        .featuredrelease img {
+            width:100%;
+            transition: 0.2s ease-out;
+            box-shadow: 0 0 1.2em rgba(0,0,0,0.7);
+        }
+
+        .featuredrelease img:hover {
+            opacity:0.95;
+        }
     </style>
     <link rel="preload" href="styles_main.css?id=34987542" as="style" onload="this.rel='stylesheet'">
     <meta charset="UTF-8">
@@ -79,6 +101,10 @@
 
         <div class="pageframe">
             <element id="music"></element>
+            <div class="featuredrelease">
+                <div class="featuredlabel">LATEST RELEASE</div>
+                <a href="https://open.spotify.com/track/4ubj4NDeBt1onuVHGionnz?si=9ca3e9a12f2240c1"><img src="maybebaby_cover.jpg" alt="Maybe Baby"/></a>
+            </div>
             <div class="gridcontainer">
                 <a class="griditem" href="https://open.spotify.com/album/6PI0WqJNToRb4B23GjnLSS?si=q7Pm6ST7TJSL8-PnDgW9bQ"><img src="sinzero_cover.webp"/></a>
                 <a class="griditem" href="https://open.spotify.com/track/7HFVWpJbftMNx5UyxEONvD?si=e1f59bd1872a4830"><img src="megustastu_cover.webp"/></a>
