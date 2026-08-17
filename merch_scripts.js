@@ -66,13 +66,70 @@
             var imgWrap = document.createElement('div');
             imgWrap.className = 'itemimgwrap';
 
+            // Collapsed (default) view: front + back shown side by side so
+            // shirts don't all look identical at a glance. Fourthwall's
+            // product images array has no explicit "front"/"back" label —
+            // this assumes image 0 = front, image 1 = back (their standard
+            // photo ordering). If a product's photos come back in a
+            // different order, swap the assumption below.
+            var split = document.createElement('div');
+            split.className = 'itemimgsplit' + (images.length < 2 ? ' singleimg' : '');
+
+            var frontThumb = document.createElement('img');
+            frontThumb.src = images.length ? images[0].url : '';
+            frontThumb.alt = product.name + ' — front';
+            frontThumb.addEventListener('click', function () {
+                imgIndex = 0;
+                showFull();
+            });
+            split.appendChild(frontThumb);
+
+            if (images.length > 1) {
+                var backThumb = document.createElement('img');
+                backThumb.src = images[1].url;
+                backThumb.alt = product.name + ' — back';
+                backThumb.addEventListener('click', function () {
+                    imgIndex = 1;
+                    showFull();
+                });
+                split.appendChild(backThumb);
+            }
+            imgWrap.appendChild(split);
+
+            if (images.length > 1) {
+                var labels = document.createElement('div');
+                labels.className = 'itemimglabels';
+                var frontLabel = document.createElement('span');
+                frontLabel.className = 'itemimglabel';
+                frontLabel.textContent = 'FRONT';
+                var backLabel = document.createElement('span');
+                backLabel.className = 'itemimglabel';
+                backLabel.textContent = 'BACK';
+                labels.appendChild(frontLabel);
+                labels.appendChild(backLabel);
+                imgWrap.appendChild(labels);
+            }
+
+            // Enlarged view: single image with full carousel through every
+            // photo (front, back, and any other angles Fourthwall has).
+            var full = document.createElement('div');
+            full.className = 'itemimgfull';
+
             var img = document.createElement('img');
             img.src = images.length ? images[imgIndex].url : '';
             img.alt = product.name;
             img.addEventListener('click', function () {
                 toggleEnlarge(card);
             });
-            imgWrap.appendChild(img);
+            full.appendChild(img);
+
+            function showFull() {
+                img.src = images[imgIndex].url;
+                updateDots();
+                if (!card.classList.contains('enlarged')) {
+                    toggleEnlarge(card);
+                }
+            }
 
             if (images.length > 1) {
                 var prevBtn = document.createElement('button');
@@ -85,7 +142,7 @@
                     img.src = images[imgIndex].url;
                     updateDots();
                 });
-                imgWrap.appendChild(prevBtn);
+                full.appendChild(prevBtn);
 
                 var nextBtn = document.createElement('button');
                 nextBtn.type = 'button';
@@ -97,7 +154,7 @@
                     img.src = images[imgIndex].url;
                     updateDots();
                 });
-                imgWrap.appendChild(nextBtn);
+                full.appendChild(nextBtn);
 
                 var dots = document.createElement('div');
                 dots.className = 'itemimgdots';
@@ -106,15 +163,17 @@
                     dot.className = 'itemimgdot' + (i === imgIndex ? ' active' : '');
                     dots.appendChild(dot);
                 });
-                imgWrap.appendChild(dots);
+                full.appendChild(dots);
             }
 
             function updateDots() {
-                var dotEls = imgWrap.querySelectorAll('.itemimgdot');
+                var dotEls = full.querySelectorAll('.itemimgdot');
                 dotEls.forEach(function (d, i) {
                     d.className = 'itemimgdot' + (i === imgIndex ? ' active' : '');
                 });
             }
+
+            imgWrap.appendChild(full);
 
             card.appendChild(imgWrap);
 
