@@ -79,7 +79,6 @@
             frontThumb.src = images.length ? images[0].url : '';
             frontThumb.alt = product.name + ' — front';
             frontThumb.addEventListener('click', function () {
-                imgIndex = 0;
                 showFull();
             });
             split.appendChild(frontThumb);
@@ -89,7 +88,6 @@
                 backThumb.src = images[1].url;
                 backThumb.alt = product.name + ' — back';
                 backThumb.addEventListener('click', function () {
-                    imgIndex = 1;
                     showFull();
                 });
                 split.appendChild(backThumb);
@@ -124,6 +122,10 @@
             full.appendChild(img);
 
             function showFull() {
+                // Always open the carousel on the front image (slide 1),
+                // regardless of which thumbnail (front or back) was
+                // clicked — the back is then just one "next" click away.
+                imgIndex = 0;
                 img.src = images[imgIndex].url;
                 updateDots();
                 if (!card.classList.contains('enlarged')) {
